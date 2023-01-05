@@ -14,7 +14,7 @@
       <td scope="row"><%= food.name%></td>
       <td scope="row"><%= food.measurement_unit%></td>
       <td scope="row"><%= food.price%></td>
-      <td scope="row"><%= button_to 'Delete', food_path(id: food), method: :delete%></td>
+      <td scope="row"><%= button_to 'Delete', food_path(id: food), method: :delete, class: "btn btn-primary"%></td>
      </tr>
     <% end %>
 </table>
