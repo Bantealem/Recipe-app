@@ -1,6 +1,5 @@
 <h1>Food List</h1>
-
-<%= button_to 'Add Food', new_food_path, method: :get%>
+<%=link_to "Add Food", new_food_path, class: "btn btn-primary"%>
 
 <table>
     <tr>
@@ -19,6 +18,8 @@
      </tr>
     <% end %>
 </table>
+
+
 
 <%# <%= button_to 'Delete', food_path(id: food), method: :delete%> 
 
