@@ -1,13 +1,23 @@
-<h1>Foods#index</h1>
-<p>Find me in app/views/foods/index.html.erb</p>
+<h1>Food List</h1>
+<%=link_to "Add Food", new_food_path, class: "btn btn-primary"%>
+<table>
+    <tr>
+      <th>Food</th>
+      <th>Measurement unit</th>
+      <th>Unit price</th>
+      <th>Action</th>
+    </tr>
 
-<%= button_to 'Logout', destroy_user_session_path, data: {turbo: false}, method: :delete, class: "btn-logout button" %> 
-<%=form_with url: foods_path, scope: :meshu do |f|%>
-  <div class="field">
-    <%= f.label :start %><br />
-    <%= f.time_field :started_at %>
-  </div>
-  <%my_time = Time.now%>
+    <% @foods.each do |food| %>
+      <tr>
+      <td><%= food.name%></td>
+      <td><%= food.measurement_unit%></td>
+      <td><%= food.price%></td>
+      <td><%= button_to 'Delete', food_path(id: food), method: :delete%></td>
+     </tr>
+    <% end %>
+</table>
 
-<%=select_time(my_time)%>
-<%end%>
+
+
+
