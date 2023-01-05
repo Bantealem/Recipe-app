@@ -1,22 +1,25 @@
-<h1>Food List</h1>
-<%=link_to "Add Food", new_food_path, class: "btn btn-primary"%>
-<table>
+<%= stylesheet_link_tag "food_controller" %>
+
+<div class="conatiner">
+<table class="table table-striped">
     <tr>
-      <th>Food</th>
-      <th>Measurement unit</th>
-      <th>Unit price</th>
-      <th>Action</th>
+      <th scope="col">Food</th>
+      <th scope="col">Measurement unit</th>
+      <th scope="col">Unit price</th>
+      <th scope="col">Action</th>
     </tr>
 
     <% @foods.each do |food| %>
       <tr>
-      <td><%= food.name%></td>
-      <td><%= food.measurement_unit%></td>
-      <td><%= food.price%></td>
-      <td><%= button_to 'Delete', food_path(id: food), method: :delete%></td>
+      <td scope="row"><%= food.name%></td>
+      <td scope="row"><%= food.measurement_unit%></td>
+      <td scope="row"><%= food.price%></td>
+      <td scope="row"><%= button_to 'Delete', food_path(id: food), method: :delete%></td>
      </tr>
     <% end %>
 </table>
+<%=link_to "Add Food", new_food_path, class: "btn btn-primary"%>
+</div>
 
 
 
