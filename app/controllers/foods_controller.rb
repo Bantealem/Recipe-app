@@ -9,8 +9,14 @@ class FoodsController < ApplicationController
   end
 
   def create
+
+    measurement_unit = params[:food][:measurement_unit]
+    prices = params[:food][:price]
+    quantity = params[:food][:quantity]
+
     @new_food = Food.new(user: current_user, name: params[:food][:name],
-                         measurement_unit: params[:food][:measurement_unit], price: params[:food][:price], quantity: params[:food][:quantity])
+                         measurement_unit:, price: prices, quantity:)
+
     if @new_food.save
       redirect_to foods_path, notice: 'Food created successfully!'
     else
