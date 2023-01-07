@@ -1,5 +1,5 @@
 
-    <div class="d-flex  gap-5 p-2 mb-3 align-items-center border-bottom border-secondary">
+    <div class="d-flex  gap-5 p-2 mb-3 align-items-center recipe-container">
         <div class='p-2 d-grid' >
           <p class='fs-4 fw-bold'><%=recipe.name %></p>
           <%=button_to "Remove", recipe_path(recipe), method: :delete, class: 'btn btn-primary' , data: { turbo_confirm: "Are you sure?"} %>

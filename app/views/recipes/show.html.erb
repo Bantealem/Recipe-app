@@ -20,9 +20,32 @@
 
   </div>
   <div class="border-bottom border-secondary pb-3 d-flex justify-content-end">
-  <%= button_to "Add Food", "/foods",class: 'btn btn-primary', method: :post%>
+     <%= link_to "Add Food", new_ingredient_path(@recipe.id), class: 'btn btn-primary'%>
   </div>
 
+     <%= link_to "Back", :back, class: 'btn btn-primary'%>
 
+<table class="table table-striped">
+   <thead>
+      <tr>
+      <th>#</th>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Unit price</th>
+      <th>Action</th>
+    </tr>
+   </thead>
+   <tbody>
+  <% @recipe.recipe_foods.each_with_index do |recipe_food, index| %>
+      <tr>
+       <td><%=index+1%></td>
+      <td><%= recipe_food.food.name%></td>
+      <td><%= recipe_food.quantity%> <%=recipe_food.food.measurement_unit%></td>
+      <td><%= recipe_food.food.price%> </td>
+      <td><%= button_to 'Delete', delete_ingredient_path(@recipe.id,recipe_food.id), method: :delete, class: 'btn btn-danger',data: { turbo_confirm: "Are you sure?"} %></td>
+     </tr>
+    <% end %>
+   </tbody>
+</table>
 
 </div>
