@@ -9,7 +9,6 @@ class FoodsController < ApplicationController
   end
 
   def create
-
     measurement_unit = params[:food][:measurement_unit]
     prices = params[:food][:price]
     quantity = params[:food][:quantity]
