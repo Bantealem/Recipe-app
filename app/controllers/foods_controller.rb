@@ -1,5 +1,4 @@
 class FoodsController < ApplicationController
-
   before_action :authenticate_user!
   def index
     @foods = Food.all.where(user_id: current_user.id).order(created_at: :desc)
@@ -10,7 +9,12 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @new_food = Food.new(user: current_user, name: params[:food][:name], measurement_unit: params[:food][:measurement_unit], price: params[:food][:price], quantity: params[:food][:quantity])
+    measurement_unit = params[:food][:measurement_unit]
+    prices = params[:food][:price]
+    quantity = params[:food][:quantity]
+
+    @new_food = Food.new(user: current_user, name: params[:food][:name],
+                         measurement_unit:, price: prices, quantity:)
     if @new_food.save
       redirect_to foods_path, notice: 'Food created successfully!'
     else
@@ -24,7 +28,7 @@ class FoodsController < ApplicationController
     if @food_delete.destroy
       redirect_to foods_path, notice: 'Successfully deleted food'
     else
-      render :new, statu:422
+      render :new, statu: 422
     end
   end
 end
