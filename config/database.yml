@@ -10,17 +10,17 @@ development:
   database: recipe_app
   adapter: postgresql
   encoding: unicode
-  port: 4556
+  port: 5432
   host : localhost
   username: postgres
-  password: meshu
+  password: postgres
 
 test:
   <<: *default
   database: recipe_test
   host : localhost
-  port: 4556
+  port: 5432
   adapter: postgresql
   encoding: unicode
   username: postgres
-  password: meshu
+  password: postgres
