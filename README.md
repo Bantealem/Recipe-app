@@ -55,7 +55,7 @@
 
 ## 🚀 Live Version <a name="live-demo"></a>
 
-- [Comming soon]()
+- [Comming soon](https://recipe-nn14.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
